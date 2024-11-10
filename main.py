@@ -1,6 +1,6 @@
 print("bla bla bla")
 
-txts = "gmuhiuddin"
+# txts = "gmuhiuddin"
 
 # for txt in txts: 
 #     print(txt)
@@ -24,4 +24,26 @@ txts = "gmuhiuddin"
 #     print("true")
 # else:
 #     print("false")
+
+# Getting lowest num
+
+# numList = [34, 24, 56, 52]
+# lowestNum = numList[0]
+
+# for num in numList:
+#     if num < lowestNum:
+#         lowestNum = num
+
+# print("Lowest num", lowestNum)
+
+# Getting highest num
+
+# numList = [34, 24, 56, 52]
+# highestNum = 0
+
+# for num in numList:
+#     if num > highestNum:
+#         highestNum = num
+
+# print("Highest num", highestNum)
 
