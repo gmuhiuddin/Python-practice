@@ -1,4 +1,4 @@
-print("bla bla bla")
+# print("bla bla bla")
 
 # txts = "gmuhiuddin"
 
@@ -47,3 +47,47 @@ print("bla bla bla")
 
 # print("Highest num", highestNum)
 
+# Python collections
+
+# - list
+# - dictionary
+# - tuple
+# - set
+
+# List
+
+students = ['bilal', "asad", "adnan", "nasir"]
+
+students.append("Ghulam muhiuddin")
+
+students.insert(6, "owais")
+
+students_2 = ["ali", "ahmed"]
+
+students.extend(students_2)
+
+# create a combined copy of a lists
+
+new_students_list = students_2 + students
+
+print(students)
+
+# Return index of argument
+
+print(students.index("ali"))
+
+# Nothing return anything
+
+students.remove("Ghulam muhiuddin")
+
+# Return popped value
+
+print(students.pop(-2))
+
+print(students)
+
+# Remove list all values
+
+students.clear()
+
+print(students)
