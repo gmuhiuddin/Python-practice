@@ -91,3 +91,51 @@ print(students)
 students.clear()
 
 print(students)
+
+# print(10 + 2 * 2 - 4 // 8)
+
+# Dictionary
+
+student = {
+    "name": "Ghulam muhiuddin",
+    "age": 15,
+    "course": "AI and Data Science"
+}
+
+student["email"] = "muhiuddinghulam825@gmail.com"
+
+student_details = {
+    "education": "Matric"
+}
+
+# Joining two dictionary
+
+student.update(student_details)
+
+# Delete a key and value pair by giving key
+
+student.pop("email")
+
+print(student)
+
+# Very important concept
+# Pass by value | Pass by refrence
+# like if I create a one variable of list and assigning a second variable same variable the pass by refrence if I change value of first variable automatically second value was changed this was called pass by refrence for example:
+
+list1 = ["ali", "ahmed", "bilal"]
+list2 = list1
+
+list1.append("nasir")
+
+print("List1", list1, sep=" ")
+print("List2", list2, sep=" ")
+
+# And Pass by value example: 
+
+list1 = ["ali", "ahmed", "bilal"]
+list2 = list1.copy() # It will change a id (refrence) of list
+
+list1.append("nasir")
+
+print("List1", list1, sep=" ")
+print("List2", list2, sep=" ")
