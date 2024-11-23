@@ -1,141 +1,191 @@
-# print("bla bla bla")
+# # print("bla bla bla")
 
-# txts = "gmuhiuddin"
+# # txts = "gmuhiuddin"
 
-# for txt in txts: 
-#     print(txt)
+# # for txt in txts: 
+# #     print(txt)
 
-# Python data types
+# # Python data types
 
-# 1. "" => str
-# 2. 1 => int
-# 3. 1.2 => float
-# 4. True / False => bool
+# # 1. "" => str
+# # 2. 1 => int
+# # 3. 1.2 => float
+# # 4. True / False => bool
 
-# txtsList = ["txt1", "txt2"]
+# # txtsList = ["txt1", "txt2"]
 
-# print(txtsList)
+# # print(txtsList)
 
-# print(txtsList.index("txt2"))
+# # print(txtsList.index("txt2"))
 
-# print(txtsList)
+# # print(txtsList)
 
-# if False:
-#     print("true")
-# else:
-#     print("false")
+# # if False:
+# #     print("true")
+# # else:
+# #     print("false")
 
-# Getting lowest num
+# # Getting lowest num
 
-# numList = [34, 24, 56, 52]
-# lowestNum = numList[0]
+# # numList = [34, 24, 56, 52]
+# # lowestNum = numList[0]
 
-# for num in numList:
-#     if num < lowestNum:
-#         lowestNum = num
+# # for num in numList:
+# #     if num < lowestNum:
+# #         lowestNum = num
 
-# print("Lowest num", lowestNum)
+# # print("Lowest num", lowestNum)
 
-# Getting highest num
+# # Getting highest num
 
-# numList = [34, 24, 56, 52]
-# highestNum = 0
+# # numList = [34, 24, 56, 52]
+# # highestNum = 0
 
-# for num in numList:
-#     if num > highestNum:
-#         highestNum = num
+# # for num in numList:
+# #     if num > highestNum:
+# #         highestNum = num
 
-# print("Highest num", highestNum)
+# # print("Highest num", highestNum)
 
-# Python collections
+# # Python collections
 
-# - list
-# - dictionary
-# - tuple
-# - set
+# # - list
+# # - dictionary
+# # - tuple
+# # - set
 
-# List
+# # List
 
-students = ['bilal', "asad", "adnan", "nasir"]
+# students = ['bilal', "asad", "adnan", "nasir"]
 
-students.append("Ghulam muhiuddin")
+# students.append("Ghulam muhiuddin")
 
-students.insert(6, "owais")
+# students.insert(6, "owais")
 
-students_2 = ["ali", "ahmed"]
+# students_2 = ["ali", "ahmed"]
 
-students.extend(students_2)
+# students.extend(students_2)
 
-# create a combined copy of a lists
+# # create a combined copy of a lists
 
-new_students_list = students_2 + students
+# new_students_list = students_2 + students
 
-print(students)
+# print(students)
 
-# Return index of argument
+# # Return index of argument
 
-print(students.index("ali"))
+# print(students.index("ali"))
 
-# Nothing return anything
+# # Nothing return anything
 
-students.remove("Ghulam muhiuddin")
+# students.remove("Ghulam muhiuddin")
 
-# Return popped value
+# # Return popped value
 
-print(students.pop(-2))
+# print(students.pop(-2))
 
-print(students)
+# print(students)
 
-# Remove list all values
+# # Remove list all values
 
-students.clear()
+# students.clear()
 
-print(students)
+# print(students)
 
-# print(10 + 2 * 2 - 4 // 8)
+# # print(10 + 2 * 2 - 4 // 8)
 
-# Dictionary
+# # Dictionary
 
-student = {
-    "name": "Ghulam muhiuddin",
-    "age": 15,
-    "course": "AI and Data Science"
-}
+# student = {
+#     "name": "Ghulam muhiuddin",
+#     "age": 15,
+#     "course": "AI and Data Science"
+# }
 
-student["email"] = "muhiuddinghulam825@gmail.com"
+# student["email"] = "muhiuddinghulam825@gmail.com"
 
-student_details = {
-    "education": "Matric"
-}
+# student_details = {
+#     "education": "Matric"
+# }
 
-# Joining two dictionary
+# # Joining two dictionary
 
-student.update(student_details)
+# student.update(student_details)
 
-# Delete a key and value pair by giving key
+# # Delete a key and value pair by giving key
 
-student.pop("email")
+# student.pop("email")
 
-print(student)
+# print(student)
 
-# Very important concept
-# Pass by value | Pass by refrence
-# like if I create a one variable of list and assigning a second variable same variable the pass by refrence if I change value of first variable automatically second value was changed this was called pass by refrence for example:
+# # Very important concept
+# # Pass by value | Pass by refrence
+# # like if I create a one variable of list and assigning a second variable same variable the pass by refrence if I change value of first variable automatically second value was changed this was called pass by refrence for example:
 
-list1 = ["ali", "ahmed", "bilal"]
-list2 = list1
+# list1 = ["ali", "ahmed", "bilal"]
+# list2 = list1
 
-list1.append("nasir")
+# list1.append("nasir")
 
-print("List1", list1, sep=" ")
-print("List2", list2, sep=" ")
+# print("List1", list1, sep=" ")
+# print("List2", list2, sep=" ")
 
-# And Pass by value example: 
+# # And Pass by value example: 
 
-list1 = ["ali", "ahmed", "bilal"]
-list2 = list1.copy() # It will change a id (refrence) of list
+# list1 = ["ali", "ahmed", "bilal"]
+# list2 = list1.copy() # It will change a id (refrence) of list
 
-list1.append("nasir")
+# list1.append("nasir")
 
-print("List1", list1, sep=" ")
-print("List2", list2, sep=" ")
+# print("List1", list1, sep=" ")
+# print("List2", list2, sep=" ")
+
+# tuple
+
+# - immutable - connot be change without reassigning
+# - itrable - you can get a single value
+
+tuple1 = (1,2,3)
+print(tuple1)
+
+# If I create a normal variable with multiple values with comma "," the assigned as a tuple
+
+values = 1,2,3,4
+
+print(values)
+
+# set
+
+# set1 = {1,2,3,4}
+
+# print(set1)
+
+guest_list = ("ali", "bilal", "owais", "imran")
+
+guest_name = input("Please add guest name").lower()
+
+if guest_name in guest_list:
+    
+    if guest_name.startswith("a"):
+        print("You sit on a first row")
+    else:
+        print("You can sit except first row")
+
+else:
+    print("Your are not eligable for entering")
+
+# or operator like js "||"
+
+# print(False or False)
+
+# and operator like js "&&"
+
+# print(False and False)
+
+print("1" or 5)
+
+print("" or 5)
+
+print("1" and 5)
+
+print("" and 5)
