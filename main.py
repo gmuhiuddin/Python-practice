@@ -145,14 +145,15 @@
 # - immutable - connot be change without reassigning
 # - itrable - you can get a single value
 
-tuple1 = (1,2,3)
-print(tuple1)
+# tuple1 = (1,2,3)
+
+# print(tuple1)
 
 # If I create a normal variable with multiple values with comma "," the assigned as a tuple
 
-values = 1,2,3,4
+# values = 1,2,3,4
 
-print(values)
+# print(values)
 
 # set
 
@@ -160,19 +161,19 @@ print(values)
 
 # print(set1)
 
-guest_list = ("ali", "bilal", "owais", "imran")
+# guest_list = ("ali", "bilal", "owais", "imran")
 
-guest_name = input("Please add guest name").lower()
+# guest_name = input("Please add guest name").lower()
 
-if guest_name in guest_list:
+# if guest_name in guest_list:
     
-    if guest_name.startswith("a"):
-        print("You sit on a first row")
-    else:
-        print("You can sit except first row")
+#     if guest_name.startswith("a"):
+#         print("You sit on a first row")
+#     else:
+#         print("You can sit except first row")
 
-else:
-    print("Your are not eligable for entering")
+# else:
+#     print("Your are not eligable for entering")
 
 # or operator like js "||"
 
@@ -182,10 +183,93 @@ else:
 
 # print(False and False)
 
-print("1" or 5)
+# print("1" or 5)
 
-print("" or 5)
+# print("" or 5)
 
-print("1" and 5)
+# print("1" and 5)
 
-print("" and 5)
+# print("" and 5)
+
+# students_list = ({
+#     "name": "Ghulam muhiuddin",
+#     "age": 15,
+#     "roll-no": 30001
+# }, {
+#     "name": "Bilal",
+#     "age": 25,
+#     "roll-no": 30002
+# }, {
+#     "name": "Ali",
+#     "age": 35,
+#     "roll-no": 30003
+# })
+
+# for student in students_list:
+#     if student["name"].lower().startswith("a"):
+#         print(student)
+
+# name = "ghulam muhiuddin"
+
+# print(name.capitalize())
+
+# Destructuring or Unpacking
+
+# name,age,rollNo = students_list[0]
+
+# print(students_list[0][rollNo])
+
+# Q.1 please print the dict or dict index of student_list my name "Ghulam muhiuddin"
+
+# dict_index = -1
+# name_of_student = "Ghulam muhiuddin"
+
+# for i, student in enumerate(students_list):
+#     if student["name"] == name_of_student:
+#         dict_index = i
+#         break
+
+# print(dict_index)
+
+# product_list = ({
+#     "ear phones": 500
+# }, {
+#     "ear pods": 500
+# }, {
+#     "charger": 500
+# })
+
+# required_product = input("Please enter product name you want: ")
+
+# Second way
+
+# for i, product in enumerate(product_list):
+#     if required_product in product:
+#         print(f'{required_product} available')
+#         break
+
+#     if i == len(product_list)-1:
+#         print(f'{required_product} not available')
+
+# Second way
+
+# for i, product in enumerate(product_list):
+#     if required_product in product:
+#         print(f'{required_product} available')
+#         break
+# else:
+#     print(f'{required_product} not available')
+
+# Destructuring or Unpacking
+
+# dict_a = {
+#     "name": "Ghulam muhiuddin",
+#     "age": 15
+# }
+
+# for val_name,val_age in dict_a.items():
+#     print(val_name, val_age)
+
+# Not operator
+
+# print(not False)
