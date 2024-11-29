@@ -273,3 +273,42 @@
 # Not operator
 
 # print(not False)
+
+# computer_guessed_num = 55
+# user_number = int(input("Please add number between 1 to 100: "))
+
+# if computer_guessed_num 
+
+# number = 5
+
+# for num in range(10):
+#     print(f"{number} x {num+1} = {number*(num+1)}")
+
+# numbers = input("Please add number: ")
+# sum = 0
+
+# for num in numbers:
+#     sum += int(num)
+
+# print(f"Sum of your number: {sum}")
+
+number_list = [33, 23, 24, 55, 12]
+highest_num = 0
+
+for num in number_list:
+    if type(number_list[0]) != int : break
+
+    if highest_num < num:
+        highest_num = num
+
+print(highest_num)
+
+lowest_num = number_list[0]
+
+for num in number_list:
+    if type(number_list[0]) != int : break
+
+    if lowest_num > num:
+        lowest_num = num
+
+print(lowest_num)
