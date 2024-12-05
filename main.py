@@ -292,23 +292,66 @@
 
 # print(f"Sum of your number: {sum}")
 
-number_list = [33, 23, 24, 55, 12]
-highest_num = 0
+# number_list = [33, 23, 24, 55, 12]
+# highest_num = 0
 
-for num in number_list:
-    if type(number_list[0]) != int : break
+# for num in number_list:
+#     if type(number_list[0]) != int : break
 
-    if highest_num < num:
-        highest_num = num
+#     if highest_num < num:
+#         highest_num = num
 
-print(highest_num)
+# print(highest_num)
 
-lowest_num = number_list[0]
+# lowest_num = number_list[0]
 
-for num in number_list:
-    if type(number_list[0]) != int : break
+# for num in number_list:
+#     if type(number_list[0]) != int : break
 
-    if lowest_num > num:
-        lowest_num = num
+#     if lowest_num > num:
+#         lowest_num = num
 
-print(lowest_num)
+# print(lowest_num)
+
+def start_quiz ():
+
+    quiz_data = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["A) Madrid", "B) Berlin", "C) Paris", "D) Rome"],
+            "answer": "C"
+        },
+        {
+            "question": "Which programming language is known as the language of AI?",
+            "options": ["A) Python", "B) Java", "C) C++", "D) Ruby"],
+            "answer": "A"
+        },
+        {
+            "question": "What is the smallest planet in our solar system?",
+            "options": ["A) Earth", "B) Mars", "C) Mercury", "D) Venus"],
+            "answer": "C"
+        }
+    ]
+
+    # in enumerate second argement is val number is starts with
+    total_score = 0
+    
+    print("Welcome to the Quiz Game!")
+    print("-" * 40)
+    
+    for i, val in enumerate(quiz_data, 1):
+        
+        print(f"Q({i}): {val["question"]}")
+        print("options:")
+
+        for opt in val["options"]:
+            print(opt)
+        
+        user_input = input("Please add your answer in A/B/C/D: ").upper()
+
+        if(val["answer"] == user_input):
+            total_score += 10
+
+    print(f"Total of {total_score}/{len(quiz_data)*10}")
+
+start_quiz()
