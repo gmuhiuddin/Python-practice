@@ -313,45 +313,56 @@
 
 # print(lowest_num)
 
-def start_quiz ():
+# def start_quiz ():
 
-    quiz_data = [
-        {
-            "question": "What is the capital of France?",
-            "options": ["A) Madrid", "B) Berlin", "C) Paris", "D) Rome"],
-            "answer": "C"
-        },
-        {
-            "question": "Which programming language is known as the language of AI?",
-            "options": ["A) Python", "B) Java", "C) C++", "D) Ruby"],
-            "answer": "A"
-        },
-        {
-            "question": "What is the smallest planet in our solar system?",
-            "options": ["A) Earth", "B) Mars", "C) Mercury", "D) Venus"],
-            "answer": "C"
-        }
-    ]
+#     quiz_data = [
+#         {
+#             "question": "What is the capital of France?",
+#             "options": ["A) Madrid", "B) Berlin", "C) Paris", "D) Rome"],
+#             "answer": "C"
+#         },
+#         {
+#             "question": "Which programming language is known as the language of AI?",
+#             "options": ["A) Python", "B) Java", "C) C++", "D) Ruby"],
+#             "answer": "A"
+#         },
+#         {
+#             "question": "What is the smallest planet in our solar system?",
+#             "options": ["A) Earth", "B) Mars", "C) Mercury", "D) Venus"],
+#             "answer": "C"
+#         }
+#     ]
 
-    # in enumerate second argement is val number is starts with
-    total_score = 0
+#     # in enumerate second argement is val number is starts with
+#     total_score = 0
     
-    print("Welcome to the Quiz Game!")
-    print("-" * 40)
+#     print("Welcome to the Quiz Game!")
+#     print("-" * 40)
     
-    for i, val in enumerate(quiz_data, 1):
+#     for i, val in enumerate(quiz_data, 1):
         
-        print(f"Q({i}): {val["question"]}")
-        print("options:")
+#         print(f"Q({i}): {val["question"]}")
+#         print("options:")
 
-        for opt in val["options"]:
-            print(opt)
+#         for opt in val["options"]:
+#             print(opt)
         
-        user_input = input("Please add your answer in A/B/C/D: ").upper()
+#         user_input = input("Please add your answer in A/B/C/D: ").upper()
 
-        if(val["answer"] == user_input):
-            total_score += 10
+#         if(val["answer"] == user_input):
+#             total_score += 10
 
-    print(f"Total of {total_score}/{len(quiz_data)*10}")
+#     print(f"Total of {total_score}/{len(quiz_data)*10}")
 
-start_quiz()
+# start_quiz()
+
+def print_some_thing(txt, *args):
+    print(txt, args)
+
+print_some_thing("Ghulam muhiudddin", "Asd")
+
+a = 1
+
+while 10 >= a:
+    print("Ghulam muhiuddin")
+    a+=1
