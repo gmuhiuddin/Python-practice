@@ -359,10 +359,35 @@
 def print_some_thing(txt, *args):
     print(txt, args)
 
-print_some_thing("Ghulam muhiudddin", "Asd")
+def remove_value_from_txt(txt="", removing_value=" "):
+    # function outline
+    """
+    the take two arguments one was txt second one was removeing value
+    """
+    
+    if removing_value not in txt:
+        return "removeing value not found"
+        
+    value = txt.replace(removing_value, "")
+    return value
 
-a = 1
+def remove_value_from_txt_and_add_value(txt="", removing_value=" ", adding_value=""):
+    # function outline
+    """
+    the take there arguments one was txt second one was removeing value third one is adding value
+    """
+    
+    if removing_value not in txt:
+        return "removeing value not found"
+        
+    value = txt.replace(removing_value, adding_value)
+    return value
 
-while 10 >= a:
-    print("Ghulam muhiuddin")
-    a+=1
+    
+# print_some_thing("Ghulam muhiudddin", "Asd")
+
+# a = 1
+
+# while 10 >= a:
+#     print("Ghulam muhiuddin")
+#     a+=1
