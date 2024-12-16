@@ -391,3 +391,137 @@ def remove_value_from_txt_and_add_value(txt="", removing_value=" ", adding_value
 # while 10 >= a:
 #     print("Ghulam muhiuddin")
 #     a+=1
+
+import random as rd
+
+def generateUniqueAccNo (allAccNo):
+    acc_no = allAccNo[0]
+    while acc_no in allAccNo:
+        acc_no = ""
+        for i in range(9):
+            random_no = str(rd.randint(0, 9))
+            acc_no += random_no
+    return acc_no
+
+def apna_bank():
+    try:
+        banking_file=open("banking_file.txt", "r")
+        file_content_str = banking_file.read() or "[]"
+        file_d = eval(file_content_str)
+        
+        first_response = input("""
+Hey, how may I help you:
+press 1: for account opening
+press 2: for checking account balance
+press 3: for send money: """)
+
+        if not first_response.isdigit():
+            return print("Please enter only digit")
+
+        first_response = int(first_response)
+
+        # It`s my own logic for checking reponse was an string or not
+        
+        # for num in first_response:
+        #     if num not in "1234567890":
+        #         break
+        # else:
+        #     first_response = int(first_response)
+
+        # if type(first_response) == str:
+        #     return print("Please enter number")
+        
+        if first_response not in range(1, 4):
+            return print("Please enter dedicated option")
+    
+        if first_response == 1:
+            acc_title = input("Please enter your account title")
+            acc_cnic = input("Please enter your cnic")
+
+            if len(acc_cnic) < 13 or not acc_cnic.isdigit():
+                return print("Cnic must be 13 characters" if len(acc_cnic) < 13 else "Cnic must be in numbers")
+
+            allAccNo = []
+            
+            for acc in file_d:
+                allAccNo.append(acc["accNo"])
+
+            acc_no = generateUniqueAccNo(allAccNo)
+            
+            file_d.append({
+                "name": acc_title,
+                "cnic": acc_cnic,
+                "accNo": acc_no,
+                "balance": 0
+            })
+            
+            banking_file=open("banking_file.txt", "w")
+            banking_file.write(f"{file_d}")
+
+            print("Congrates your account was created in apna bank")
+            
+        elif first_response == 2:
+            acc_no = input("Please enter your account")
+            account = {}
+    
+            for acc in file_d:
+                if acc["accNo"] == acc_no:
+                    account = acc
+                    break
+
+            if len(account) > 0:
+                print(f"Your account balance is {account.get("balance")}")
+            else:
+                print(f"Account not found is this account no: {acc_no}")
+                    
+        elif first_response == 3:
+            user_acc_no = input("Please enter your account no: ")
+            account = {}
+    
+            for acc in file_d:
+                if acc["accNo"] == user_acc_no:
+                    account = acc
+                    break
+
+            if len(account) > 0:
+                receiver_acc_no = input("Please enter receiver account no: ")
+
+                receiver_account = {}
+
+                for acc in file_d:
+                    if acc["accNo"] != user_acc_no and acc["accNo"] == receiver_acc_no:
+                        receiver_account = acc
+                        break
+
+                if len(receiver_account) > 0:
+                    amount = float(input("Please enter a amount"))
+
+                    if account["balance"] >= amount:
+                        sender_acc_index = file_d.index(account)
+                        
+                        file_d[sender_acc_index]["balance"] -= amount
+                        
+                        receiver_acc_index = file_d.index(receiver_account)
+                        
+                        file_d[receiver_acc_index]["balance"] += amount
+                        
+                        banking_file=open("banking_file.txt", "w")
+                        
+                        banking_file.write(f"{file_d}")
+
+                        print("Amount was sended successfully")
+                    else:
+                        print("You don`t have sufficient balance")
+                else:
+                    print(f"Receiver account not found is this account no: {receiver_acc_no}")
+            else:
+                print(f"Account not found is this account no: {user_acc_no}")
+
+    except Exception as error:
+        print("error: ", error, sep="")
+    else:
+        print("Thanks for contacting apna bank")
+    finally:
+        banking_file.close()
+
+apna_bank()
