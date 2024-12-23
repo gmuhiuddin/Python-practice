@@ -395,12 +395,19 @@ def remove_value_from_txt_and_add_value(txt="", removing_value=" ", adding_value
 import random as rd
 
 def generateUniqueAccNo (allAccNo):
-    acc_no = allAccNo[0]
+    acc_no = 000000000
+
+    if len(allAccNo):
+        acc_no = allAccNo[0]
+    else:
+        allAccNo.append(000000000)
+
     while acc_no in allAccNo:
         acc_no = ""
         for i in range(9):
             random_no = str(rd.randint(0, 9))
             acc_no += random_no
+    
     return acc_no
 
 def apna_bank():
@@ -526,3 +533,210 @@ press 3: for send money: """)
 
 # apna_bank()
 
+# Object Oriented Programming (OOP)
+
+# Classes
+
+# 1. Class is a blueprint of object
+
+# First we create a class
+
+# Normal Class
+
+# class Car ():
+#     model = "civic"
+#     make = 2009
+#     company = "Honda"
+
+# car1 = Car()
+
+# print(car1.model)
+
+# Class with initilizer: like we assign a dynamically values
+
+# class Car ():
+#     def __init__(self, company, model, make):
+#         self.company = company
+#         self.model = model
+#         self.make = make
+
+# car1 = Car("honda", "city", 2009)
+
+# print(car1.model)
+
+def calculate_balance(transactions):
+    balance = 0
+
+    for transaction in transactions:
+        if transaction["status"] == "active":
+            if transaction["type"] == "credit":
+                balance += transaction["amount"]
+            else:
+                balance -= transaction["amount"]
+
+    return balance
+
+def apna_bank_with_transaction():
+    try:
+        banking_file=open("banking_file_transactions.txt", "r")
+        file_content_str = banking_file.read() or "[]"
+        file_d = eval(file_content_str)
+        
+        first_response = input("""
+Hey, how may I help you:
+press 1: for account opening
+press 2: for checking account balance
+press 3: for send money:
+press 4: for transactions history: """)
+
+        if not first_response.isdigit():
+            return print("Please enter only digit")
+
+        first_response = int(first_response)
+
+        # It`s my own logic for checking reponse was an string or not
+        
+        # for num in first_response:
+        #     if num not in "1234567890":
+        #         break
+        # else:
+        #     first_response = int(first_response)
+
+        # if type(first_response) == str:
+        #     return print("Please enter number")
+        
+        if first_response not in range(1, 5):
+            return print("Please enter dedicated option")
+    
+        if first_response == 1:
+            acc_title = input("Please enter your account title")
+            acc_cnic = input("Please enter your cnic")
+
+            if len(acc_cnic) < 13 or not acc_cnic.isdigit():
+                return print("Cnic must be 13 characters" if len(acc_cnic) < 13 else "Cnic must be in numbers")
+
+            allAccNo = []
+            
+            for acc in file_d:
+                allAccNo.append(acc["accNo"])
+
+            acc_no = generateUniqueAccNo(allAccNo)
+            
+            file_d.append({
+                "name": acc_title,
+                "cnic": acc_cnic,
+                "accNo": acc_no,
+                "transactions": "[]"
+            })
+            
+            banking_file=open("banking_file_transactions.txt", "w")
+            banking_file.write(f"{file_d}")
+
+            print("Congrates your account was created in apna bank")
+            
+        elif first_response == 2:
+            acc_no = input("Please enter your account")
+            account = {}
+    
+            for acc in file_d:
+                if acc["accNo"] == acc_no:
+                    account = acc
+                    break
+
+            acc_balance = calculate_balance(eval(account.get("transactions")))
+
+            if len(account) > 0:
+                print(f"Your account balance is {acc_balance}")
+            else:
+                print(f"Account not found is this account no: {acc_no}")
+                    
+        elif first_response == 3:
+            user_acc_no = input("Please enter your account no: ")
+            account = {}
+    
+            for acc in file_d:
+                if acc["accNo"] == user_acc_no:
+                    account = acc
+                    break
+
+            if len(account) > 0:
+                receiver_acc_no = input("Please enter receiver account no: ")
+
+                receiver_account = {}
+
+                for acc in file_d:
+                    if acc["accNo"] != user_acc_no and acc["accNo"] == receiver_acc_no:
+                        receiver_account = acc
+                        break
+
+                if len(receiver_account) > 0:
+                    amount = float(input("Please enter a amount"))
+
+                    acc_balance = calculate_balance(eval(account.get("transactions")))
+
+                    if acc_balance >= amount:
+                        sender_acc_index = file_d.index(account)
+                        
+                        sender_acc_transactions = eval(file_d[sender_acc_index]["transactions"])
+
+                        sender_acc_transactions.append({
+                            "amount": amount,
+                            "type": "debit",
+                            "status": "active"
+                        })
+
+                        file_d[sender_acc_index]["transactions"] = f"{sender_acc_transactions}"
+                        
+                        receiver_acc_index = file_d.index(receiver_account)
+                        
+                        receiver_acc_transactions = eval(file_d[receiver_acc_index]["transactions"])
+
+                        receiver_acc_transactions.append({
+                            "amount": amount,
+                            "type": "credit",
+                            "status": "active"
+                        })
+
+                        file_d[receiver_acc_index]["transactions"] = f"{receiver_acc_transactions}"
+                        
+                        banking_file=open("banking_file_transactions.txt", "w")
+                        
+                        banking_file.write(f"{file_d}")
+
+                        print("Amount was sended successfully")
+                    else:
+                        print("You don`t have sufficient balance")
+                else:
+                    print(f"Receiver account not found is this account no: {receiver_acc_no}")
+            else:
+                print(f"Account not found is this account no: {user_acc_no}")
+        
+        elif first_response == 4:
+            user_acc_no = input("Please enter your account no: ")
+            account = {}
+    
+            for acc in file_d:
+                if acc["accNo"] == user_acc_no:
+                    account = acc
+                    break
+
+            if len(account) > 0:
+                account_transactions = eval(account["transactions"])
+                acc_balance = calculate_balance(account_transactions)
+
+                print("  Your transactions history  ")
+                print("-"*29)
+                for transaction in account_transactions:
+                    print(f"type: {transaction["type"]} | {transaction["status"]} | {transaction["amount"]}")
+                print(f"Active Balance: {acc_balance}")
+            else:
+                print(f"Account not found is this account no: {user_acc_no}")
+
+    except Exception as error:
+        print("error: ", error, sep="")
+    else:
+        print("Thanks for contacting apna bank")
+    finally:
+        banking_file.close()
+
+apna_bank_with_transaction()

@@ -1,0 +1,1 @@
+[{'name': 'ghuasdf', 'cnic': '1234567890123', 'accNo': '676114452', 'transactions': "[{'amount': 50.0, 'type': 'credit', 'status': 'active'}]"}, {'name': 'ghulam muhiuddin', 'cnic': '4230112345678', 'accNo': '985884378', 'transactions': "[{'type': 'credit', 'status': 'active', 'amount': 100}, {'amount': 50.0, 'type': 'debit', 'status': 'active'}]"}]
