@@ -739,4 +739,42 @@ press 4: for transactions history: """)
     finally:
         banking_file.close()
 
-apna_bank_with_transaction()
+# apna_bank_with_transaction()
+
+class Person:
+    def __init__(self, name):
+        self.__name = name
+    
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, name):
+        self.__name = name
+
+    def __str__(self):
+        return f"name: {self.__name}"
+
+p1 = Person("Ghulam muhiuddin")
+
+# print(p1)
+
+class Student(Person):
+    def __init__(self, name, roll_no):
+        super().__init__(name)
+        self.__roll_no = roll_no
+    
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, name):
+        self.__name = name
+
+    def get_roll_no(self):
+        return self.__roll_no
+    
+    def set_roll_no(self, roll_no):
+        self.__roll_no = roll_no
+
+s1 = Student("Ghulam muhiuddin", 333451)
+
+print(s1)
